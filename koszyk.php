@@ -98,6 +98,7 @@
                 $p->bindValue(':id', $id_produkt, SQLITE3_INTEGER);
                 $produkt = $p->execute()->fetchArray(SQLITE3_ASSOC);
                 $sumaCen += $produkt['cena'] * $ilosc;
+            $_SESSION['kwota_produkty'] = $sumaCen;
             ?>
                 <tr>
                     <td><?= $produkt['nazwa'] ?></td>
@@ -105,7 +106,7 @@
                     <td>
                         <form method="POST"> <!-- zmiana ilości produktu -->
                             <input type="hidden" name="id_produkt" value="<?= $produkt['id'] ?>">
-                            <input type="number" name="ilosc" value="<?= $ilosc ?>" min="1" onchange="this.form.submit()" style="width: 50px">
+                            <input type="number" name="ilosc" value="<?= $ilosc ?>" min="1" max="<?=$produkt['stan']?>" onchange="this.form.submit()" style="width: 50px">
                             <input type="hidden" name="zmien_ilosc" value="1">
                         </form>
                     </td>
@@ -120,10 +121,9 @@
         </table>
 
         <h3>Cena produktów: <?= number_format($sumaCen, 2) ?> zł</h3>
+        <button type="button" class="realizuj"><a href="zamow.php">Realizuj zamówienie</a></button> <!-- odnośnik do strony gdzie można zrealizować zamówienie -->
     <?php else: ?>
         <p>Pusto? Trzeba coś tu dodać!</p> <!-- jeżeli koszyk jest pusty -->
     <?php endif; ?>
-
-        <button type="button" class="realizuj"><a href="zamow.php">Realizuj zamówienie</a></button> <!-- odnośnik do strony gdzie można zrealizować zamówienie -->
 </body>
 </html>

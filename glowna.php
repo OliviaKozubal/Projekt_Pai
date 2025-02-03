@@ -44,6 +44,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 10px 0 10px;
+            background-color:rgba(33, 90, 10, 0.25);
         }
 
         img {

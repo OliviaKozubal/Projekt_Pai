@@ -104,7 +104,7 @@ $produkty = $db->p->query("SELECT * FROM produkty"); // pobranie listy produktó
             border-radius: 10px;
             padding: 15px;
             margin: 10px 0 50px 0;
-            width: 350px;
+            width: 400px;
             background-color: #f9f9f9;
         }
     </style>
@@ -115,7 +115,6 @@ $produkty = $db->p->query("SELECT * FROM produkty"); // pobranie listy produktó
             <img src="ikony/dom.png" alt="Strona główna">
         </a>
     </div>
-
     <h1>Zarządzanie produktami</h1>
 
     <form method="POST" enctype="multipart/form-data" class="wyglad_form">  <!-- formularz - dodawanie produktów -->
