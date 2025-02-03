@@ -22,14 +22,6 @@ class bazaDanych {
             cena REAL NOT NULL
         )");
 
-        // tabela koszyka
-        $this->p->exec("CREATE TABLE IF NOT EXISTS cart (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            id_produkt INTEGER NOT NULL,
-            ilosc INTEGER NOT NULL DEFAULT 1,
-            FOREIGN KEY (id_produkt) REFERENCES produkty(id)
-        )");
-
         // tabela z metodami wysyłki
         $this->p->exec("CREATE TABLE IF NOT EXISTS wysylka (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
